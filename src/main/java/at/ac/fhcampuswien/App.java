@@ -4,36 +4,47 @@ import java.util.Scanner;
 
 public class App {
 
-    Scanner scanner = new Scanner(System.in);
+    Scanner scan = new Scanner(System.in);
 
     //todo Task 1
     public void largestNumber(){
-        System.out.println("Please enter a number: ");
-        double largestNumber = 0;
-        double number = 1;
-        int number1 = 1;
+            double nummer;
+            int zaehlen = 1;
+            double max = 0;
 
-        while(number > 0){
-            System.out.print("Number: " + number1 );
-            number1++;
-            number = scanner.nextDouble();
-            if ((number1 == 2)&&(number<=0)) {
-                System.out.println("No number entered.");
-            } else if (number>largestNumber) {
-                largestNumber = number;
-            } else if (number<=0) {
-                System.out.println("The largest number is: " + largestNumber);
+            do {
+                System.out.print("Number " + zaehlen + ": ");
+                nummer = scan.nextFloat();
+                //System.out.printf(); //für die doubles
 
-            }
+                if (zaehlen == 1 && nummer <= 0) {
+                    System.out.println("No number entered.");
+                    break;
+                }
+                if (nummer > max) {
+                    max = nummer;
+                }
+
+                if (nummer <= 0) {
+
+                    System.out.printf( "The largest number is "+ "%.2f", max);
+                    System.out.println();
+
+                }
+                zaehlen++;
+
+            } while (nummer > 0);
         }
 
 
 
-    }
+
+
 
     //todo Task 2
+    Scanner scanner = new Scanner(System.in);
     public void stairs(){
-        System.out.println("n: ");
+        System.out.print("n: ");
         int z = 1;
         int reihe = scanner.nextInt();
         if(reihe <= 0) {
@@ -41,7 +52,7 @@ public class App {
         }else {
             for (int i = 1; i <= reihe; i++) {
                 for( int j = 0; j < i; j++) {
-                    System.out.print(z++ + "");
+                    System.out.print(z++ + " ");
                 }
                 System.out.println();
             }
