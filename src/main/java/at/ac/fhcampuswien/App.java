@@ -4,35 +4,146 @@ import java.util.Scanner;
 
 public class App {
 
+    Scanner scanner = new Scanner(System.in);
+
     //todo Task 1
     public void largestNumber(){
-        // input your solution here
+        System.out.println("Please enter a number: ");
+        double largestNumber = 0;
+        double number = 1;
+        int number1 = 1;
+
+        while(number > 0){
+            System.out.print("Number: " + number1 );
+            number1++;
+            number = scanner.nextDouble();
+            if ((number1 == 2)&&(number<=0)) {
+                System.out.println("No number entered.");
+            } else if (number>largestNumber) {
+                largestNumber = number;
+            } else if (number<=0) {
+                System.out.println("The largest number is: " + largestNumber);
+
+            }
+        }
+
+
+
     }
 
     //todo Task 2
     public void stairs(){
-        // input your solution here
+        System.out.println("n: ");
+        int z = 1;
+        int reihe = scanner.nextInt();
+        if(reihe <= 0) {
+            System.out.println("Invalid number!");
+        }else {
+            for (int i = 1; i <= reihe; i++) {
+                for( int j = 0; j < i; j++) {
+                    System.out.print(z++ + "");
+                }
+                System.out.println();
+            }
+        }
     }
 
     //todo Task 3
     public void printPyramid(){
-        // input your solution here
+       int number = 6;
+       for (int z = 1; z <= number; z++){
+           for(int j = number - z; j > 0; j--)
+           {
+               System.out.print(" ");
+           }
+           for (int y = 1; y <= (z * 2) - 1; y++)
+           {
+               System.out.print("*");
+           }
+           System.out.println();
+       }
     }
 
     //todo Task 4
     public void printRhombus(){
-        // input your solution here
+
     }
 
     //todo Task 5
-    public void marks(){
-        // input your solution here
+    public void marks() {
+        Scanner scan= new Scanner(System.in);
+        int nummer = 1;
+        double note = 1;
+        double sum = 0;
+        double durchschnitt;
+        int zählen = 0;
+        int NegativeNoten = 0;
+
+        while (note > 0){
+            System.out.print("Mark " + nummer + ": ");
+            nummer++;
+
+            note = scan.nextInt();
+
+            if ((nummer == 2) && (note == 0)) {
+                System.out.println("Average: 0,00");
+                System.out.println("Negative marks: 0");
+
+            }else if ((note > 5) && (note != 0))
+            {
+                System.out.println("Invalid mark!");
+                nummer--;
+
+            }else if ((note > 0) &&(note < 6))
+            {
+                sum = sum + note;
+                zählen++;
+
+                if(note == 5) {
+                    NegativeNoten++;
+                }
+
+            }else if (note == 0){
+                durchschnitt = sum/(zählen);
+                System.out.println("Average: "+ String.format("%.2f", durchschnitt));
+                System.out.println("Negative marks: "+ NegativeNoten);
+            }
+        }
     }
+
+
 
     //todo Task 6
     public void happyNumbers(){
-        // input your solution here
-    }
+            Scanner scan= new Scanner(System.in);
+            System.out.print("n: ");
+            int nummer = scan.nextInt();
+            int sum2;
+            int d3;
+            int d2;
+            int d1;
+
+            while (nummer > 0) {
+
+                if (nummer != 1 && nummer != 4) {
+                    d3 = nummer % 10;
+                    d2 = (nummer / 10) % 10;
+                    d1 = (nummer / 100) % 10;
+
+                    sum2 = (int) (Math.pow(d1,2) + Math.pow(d2,2) + Math.pow(d3,2));
+                    nummer = sum2;
+
+                } else if (nummer == 1) {
+                    System.out.println("Happy number!");
+                    break;
+
+                } else if (nummer == 4) {
+                    System.out.println("Sad number!");
+                    break;
+                }
+            }
+        }
+
 
     public static void main(String[] args){
         App exercise2 = new App();
