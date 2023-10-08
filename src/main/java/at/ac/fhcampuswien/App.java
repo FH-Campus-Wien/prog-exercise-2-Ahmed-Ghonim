@@ -15,7 +15,7 @@ public class App {
             do {
                 System.out.print("Number " + zaehlen + ": ");
                 nummer = scan.nextFloat();
-                //System.out.printf(); //für die doubles
+                //System.out.printf(); //für die doubless
 
                 if (zaehlen == 1 && nummer <= 0) {
                     System.out.println("No number entered.");
